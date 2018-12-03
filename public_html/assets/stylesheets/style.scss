@@ -1,0 +1,436 @@
+/**
+ * Copyright (C) 2018 Daniel Shields
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Affero General Public License as
+ * published by the Free Software Foundation, either version 3 of the
+ * License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU Affero General Public License for more details.
+ * 
+ * You should have received a copy of the GNU Affero General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+$primary: 	#561c4e;
+$highlight: #fdc516;
+$danger:	#d9534f;
+$showdown:	#009FE3;
+
+$linkcolor: lighten($highlight, 5%);
+$linkhover: darken($linkcolor, 10%);
+
+@import "fa_variables";
+
+@font-face {
+	font-family: 'FontAwesome';
+	src: url('#{$fa-font-path}/fontawesome-webfont.eot?v=#{$fa-version}');
+	src: url('#{$fa-font-path}/fontawesome-webfont.eot?#iefix&v=#{$fa-version}') format('embedded-opentype'),
+	  url('#{$fa-font-path}/fontawesome-webfont.woff2?v=#{$fa-version}') format('woff2'),
+	  url('#{$fa-font-path}/fontawesome-webfont.woff?v=#{$fa-version}') format('woff'),
+	  url('#{$fa-font-path}/fontawesome-webfont.ttf?v=#{$fa-version}') format('truetype'),
+	  url('#{$fa-font-path}/fontawesome-webfont.svg?v=#{$fa-version}#fontawesomeregular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+  }
+  .fa:before {
+	display: inline-block;
+	font: normal normal normal 14px/1 FontAwesome, sans-serif;
+	font-size: inherit;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-transform: translate(0, 0);
+	        transform: translate(0, 0);
+	vertical-align: inherit;
+  }
+html {
+	overflow-y: scroll;
+}
+* {
+	font-family: futura-pt, sans-serif;
+	font-weight: 500;
+	font-style: normal;
+}
+a {
+	color: $linkcolor;
+	&:hover {
+		color: $linkhover;
+	}
+	&:focus {
+		outline: none;
+	}
+}
+.fa {
+	&:before {
+		font-family: "FontAwesome";
+
+		.main-menu & {
+			display: inline-block;
+			text-align: center;
+			width: 1.5em;
+			margin-right: 0.25em;
+		}
+	}
+}
+body {
+    margin: 0 !important;
+	padding: 0 !important;
+	background: -webkit-gradient(linear, left top, left bottom, from($primary), to(darken($primary, 20%)));
+	background: linear-gradient($primary, darken($primary, 20%));
+	background-repeat: no-repeat;
+    background-position: top center;
+    background-attachment: fixed;
+	height: 100vh;
+}
+.bg-overlay {
+	//background-image: url("/assets/img/test_tile.png");
+	width: 300vw;
+	top: -150vh;
+	left: -150vw;
+	height: 300vh;
+	opacity: 0.6;
+	position: fixed;
+	background-repeat: repeat;
+	padding: 0;
+	margin: 0;
+	z-index:-2;
+  	-webkit-transform: rotate(45deg);
+  	        transform: rotate(45deg);
+}
+.content {
+	width: 800px;
+	margin: 0 auto;
+	margin-bottom: 0;
+	background-color: white;
+	min-height: calc(100% - 100px);
+}
+.header {
+	position: relative;
+    text-align: center;
+	color: white;
+	z-index: 5;
+
+	.header-img {
+		width: 100%;
+		height: auto;
+		margin-bottom: -171px;
+
+		-webkit-clip-path: polygon(0 0, 801px 0%, 801px 300px, 58% 300px, 400px 92%, 42% 300px, 0% 300px);
+		        clip-path: polygon(0 0, 801px 0%, 801px 300px, 58% 300px, 400px 92%, 42% 300px, 0% 300px);
+	}
+
+	.header-logo {
+		position: absolute;
+		top: 90%;
+		left: 50%;
+		-webkit-transform: translate(-50%, -50%);
+		        transform: translate(-50%, -50%);
+		height: 270px;
+		z-index: 50;
+
+		-webkit-clip-path: polygon(50% 0, 100% 25%, 100% 45%, 50% 110%, 0% 45%, 0 25%);
+		        clip-path: polygon(50% 0, 100% 25%, 100% 45%, 50% 110%, 0% 45%, 0 25%);
+		
+	}
+	.header-date {
+		position: absolute;
+		font-family: futura-pt-bold, sans-serif;
+		font-weight: 700;
+		top: 50%;
+		right: 16px;
+		font-size: 31px;
+	}
+	.header-location {
+		position: absolute;
+		font-family: futura-pt-bold, sans-serif;
+		font-weight: 600;
+		top: 65%;
+		right: 16px;
+		color: $highlight;
+		font-size: 26px;
+	}
+}
+
+@import "navbar";
+.navbar {
+	width: 100%;
+	padding-right: 0;
+	font-size: 18px;
+	font-weight: 700;
+	.nav-item {
+		-webkit-user-select: none;
+		   -moz-user-select: none;
+		    -ms-user-select: none;
+				user-select: none;
+		cursor: -webkit-pointer;
+		cursor: pointer;
+		.nav-link, .nav-link > *{
+			font-weight: 700;
+		}
+	}
+}
+
+.btn {
+	font-size: 24px;
+	&.btn-primary {
+		background-color: $showdown;
+	}
+}
+
+.logout, .logout:hover {
+	background-color: $danger;
+	border-width: 5px;
+	border-radius: 8px;
+	color: white;
+}
+.page {
+	padding: 15px;
+	text-align: center;
+
+	font-size: 18px;
+
+	ul {
+		text-align: left;
+	}
+
+	.page-title {
+		text-align: left;
+	}
+}
+form {
+	text-align: initial;
+}
+hr.soft {
+	border: 0;
+    height: 2px;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0)), color-stop(rgba(0, 0, 0, 0.75)), to(rgba(0, 0, 0, 0)));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+hr.left {
+	border: 0;
+    height: 2px;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.75)), to(rgba(0, 0, 0, 0)));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+#slideshow {
+	max-width: 90%;
+	margin: 0 auto;
+	margin-top: 50px;
+
+	img {
+		height: 450px;
+		margin: 0 auto;
+	}
+}
+.footer {
+	width: 100%;
+	margin: 0 auto;
+	background-color: black;
+	height: 100px;
+	color: $highlight;
+
+	.footer-container {
+		width: 800px;
+		margin: auto;
+
+		.row {
+			margin: 0;
+		}
+	}
+
+	.credits {
+		padding: 10px;
+		padding-bottom: 0;
+		text-align: center;
+		color: white;
+		p {
+			margin-bottom: 5px;
+			font-size: 14px;
+			
+			&:first-of-type {
+				font-weight: 600;
+				font-size: 18px;
+				color: $highlight;
+			}
+		}
+		a {
+			text-decoration: underline;
+		}
+	}
+	.social {
+		text-align: right;
+	}
+	.logos {
+		height: 100px;
+		white-space: nowrap;
+		display: table;
+		padding: 0;
+		.logo {
+			width: 25%;
+			max-height: 100%;
+			vertical-align: middle;
+			padding-right: 5px;
+			display: table-cell;
+			img {
+				max-width: 100%;
+			}
+		}
+	}
+}
+.return-alert {
+	max-width: 60%;
+	margin: 15px auto;
+}
+a.external {
+	width: 100%;
+	&:after {
+		font-family: "FontAwesome";
+		position: absolute;
+		content: $fa-var-external-link;
+		right: 15px;
+	}
+}
+.card.sponsor, .card.activity {
+	padding: 15px;
+	.row {
+		margin: 0;
+	}
+	.image-wrapper {
+		height: 180px;
+		position: relative;
+	}
+	.card-img-top {
+		display: block;
+		max-height: 100%;
+		max-width: 100%;
+		width: auto;
+		position: absolute;
+		top: 0; bottom: 0; left: 0; right: 0;
+		margin: auto;
+	}
+	margin-bottom: 15px;
+}
+.info-header {
+	margin-top: 15px;	
+}
+.venue-map {
+	width: 100%;
+	height: 400px;
+}
+#sponsor-slideshow {
+	position: absolute;
+	right: 0;
+	width: 180px;
+	img {
+		max-height: 100px;
+	}
+}
+.userpage {
+	.row {
+		margin-bottom: 20px;
+	}
+}
+.teampage {
+	.row {
+		margin-bottom: 30px;
+	}
+	h4 {
+		margin-bottom: -10px;
+	}
+	h4.alert-heading {
+		margin-bottom: 5px;
+	}
+	.quali-signup {
+		width: 100%;
+	}
+}
+.team-list {
+	display: block;
+	margin: 0 auto;
+	width: 40%;
+}
+.truncate {
+	max-width: 140px;
+	float:left;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.team-game {
+	height: 1.4em;
+}
+.contact {
+	height: 100px;
+	width: 60%;
+	margin: 10px auto;
+	background-color: rgb(247, 247, 247);
+	border-width: 4px;
+	border-color: black;
+	border-radius: 5px;
+	padding: 10px;
+	position: relative;
+	a {
+		position: absolute;
+		height: 58px;
+		width: 58px;
+		right: 5%;
+		top: 50%;
+
+		-webkit-transition: .8s;
+
+		transition: .8s;
+
+		&:hover {
+			-webkit-transform: scale(1.1);
+					transform: scale(1.1);
+		}
+		
+		&:first-of-type {
+			left: 5%;
+		}
+		img {
+			-webkit-transform: translate(0, -50%);
+			        transform: translate(0, -50%);
+			height: inherit;
+			width: inherit;
+		}
+	}
+	&.main {
+		a {
+			margin: auto;
+			height: 64px;
+			width: auto;
+		}
+	}
+}
+.game-info {
+	width: 100%;
+	background-color: $showdown;
+	padding-bottom: 10px;
+	
+	color: white;
+
+	.game-title, .game-title > a {
+		font-size: 24px;
+		font-weight: 700;
+	}
+}
+.faq p {
+	text-align: left;
+}
+
+@supports (-ms-ime-align:auto) or (-webkit-overflow-scrolling: touch) {
+    .navbar {
+		z-index: 500;
+	}
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	.navbar {
+		z-index: 500;
+	}
+ }
