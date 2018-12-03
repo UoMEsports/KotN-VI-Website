@@ -1,7 +1,6 @@
 {
   "require": {
     "leafo/scssphp": "0.7.5",
-    "wixel/gump": "^1.5",
     "sendinblue/api-v3-sdk": "6.0.0"
   }
 }
