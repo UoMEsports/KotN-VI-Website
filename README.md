@@ -7,7 +7,7 @@ This is the final state of the KotN VI website after the event had concluded in 
 - Allows teams to register for a certain qualifier once they are valid
 
 ## History
-This website is very loosely based of the EssentialsTF website, which Dan Shields was lead developer of for some time. It started out as the website for the Rocket League Open tournament from November 2017, then was updated for us on KotN 2018. Most of the changes between then and now after KotN VI is a new frontend style, with some backend updates such as password resets.
+This website is very loosely based of the EssentialsTF website, which Dan Shields was lead developer of for some time. It started out as the website for the Rocket League Open tournament from November 2017, then was updated for use on KotN 2018. Most of the changes between then and now after KotN VI is a new frontend style, with some backend updates such as password resets being added.
 
 ## Future plans
 The next version of the KotN website (under whatever event name it may be) will have a totally new frontend, and the API of this project will be rewritten into something like Laravel. The biggest weakness of this codebase is that page delivery is integrated in the same space as backend functions/API.
